@@ -15,9 +15,9 @@ def web_ui_link():
 
 @pytest.fixture()
 def driver_chrome():
-	#options = webdriver.ChromeOptions()
-	#options.add_argument("-headless")
-	driver = webdriver.Chrome()
+	options = webdriver.ChromeOptions()
+	options.add_argument("-headless")
+	driver = webdriver.Chrome(options=options)
 	yield driver
 	driver.quit()
 
