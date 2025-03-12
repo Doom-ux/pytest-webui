@@ -25,6 +25,7 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
+        sudo apt install qemu-system-arm
         python -m pip install --upgrade pip
         pip install flake8 pytest selenium
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
@@ -33,6 +34,9 @@ jobs:
         sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo dpkg -i google-chrome-stable_current_amd64.deb
         sudo rm google-chrome-stable_current_amd64.deb
+    - name: Run OpenBmc
+      run: |
+        sudo qemu-system-arm -m 256 -M romulus-bmc -nographic -drive file=/home/runner/work/pytest-webui/pytest-webui/romulus/obmc-phosphor-image-romulus-20250214213550.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=:0.0.0.0:2222-:22,hostfwd=:0.0.0.0:2443-:443,hostfwd=udp:0.0.0.0:2623-:623,hostname=qemu
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
