@@ -42,4 +42,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run tests
       run: |
-        ./home/runner/work/pytest-webui/pytest-webui/tests/test.sh
+        ./tests/test.sh
