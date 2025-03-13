@@ -1,0 +1,14 @@
+services:
+  run_tests: &run_tests
+      build:
+        context: .
+        dockerfile: Dockerfile.run_tests
+      profiles: ["test"]
+      image: run_tests
+
+  webtest:
+    <<: *run_tests
+    ports: ["2222:22", "2623:623", "2443:443"]
+    profiles: ["webtest"]
+    entrypoints: ["./test_in_docker.sh"]
+      
