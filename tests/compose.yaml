@@ -10,5 +10,5 @@ services:
     <<: *run_tests
     ports: ["2222:22", "2623:623", "2443:443"]
     profiles: ["webtest"]
-    entrypoints: ["./test_in_docker.sh"]
+    entrypoint: ["./test_in_docker.sh"]
       
