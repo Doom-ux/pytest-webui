@@ -1,4 +1,4 @@
-FROM: ubuntu:latest
+FROM ubuntu:latest
 
 WORKDIR /test
 COPY test_in_docker.sh ./
