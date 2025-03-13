@@ -18,4 +18,4 @@ while [ ! -e "$SERIAL_DEVICE" ]; do
 done
 
 # Run pytest
-pytest tests/test_obmc1.py
+pytest test_obmc1.py
