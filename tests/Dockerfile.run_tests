@@ -1,0 +1,8 @@
+FROM: ubuntu:latest
+
+WORKDIR /test
+COPY test_in_docker.sh ./
+COPY test_obmc1.py ./
+
+# Set ENTRYPOINT to the script
+ENTRYPOINT [ "./test_in_docker.sh" ]
