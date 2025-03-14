@@ -25,7 +25,8 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
-        sudo apt install qemu-system-arm
+        sudo apt-get update
+        sudo apt-get -y install qemu-system-arm
         python -m pip install --upgrade pip
         pip install flake8 pytest selenium
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
