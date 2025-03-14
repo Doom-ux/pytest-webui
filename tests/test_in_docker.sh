@@ -8,15 +8,20 @@ QEMU_PID=$!
 
 SERIAL_DEVICE=/dev/pts/0
 
+if ! kill -0 "$QEMU_PID" 2>/dev/null; then
+    echo "QEMU exited unexpectedly."
+    exit 1
+fi
+
 # Wait until serial device is registered and QEMU is ranning.
-while [ ! -e "$SERIAL_DEVICE" ]; do
-    if ! kill -0 "$QEMU_PID" 2>/dev/null; then
-        echo "QEMU exited unexpectedly."
-        exit 1
-    fi
-    echo "Loop!!!"
-    sleep 0.1s
-done
+#while [ ! -e "$SERIAL_DEVICE" ]; do
+#    if ! kill -0 "$QEMU_PID" 2>/dev/null; then
+#        echo "QEMU exited unexpectedly."
+#        exit 1
+#    fi
+#    echo "Loop!!!"
+#    sleep 0.1s
+#done
 
 echo "Hello1111"
 
