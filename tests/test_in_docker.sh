@@ -19,11 +19,9 @@ while [ ! -e "$SERIAL_DEVICE" ]; do
         echo "QEMU exited unexpectedly."
         exit 1
     fi
-    echo "Loop!!!"
     sleep 0.1s
 done
 
-echo "Hello1111"
 
 # Run pytest
 pytest test_obmc1.py
