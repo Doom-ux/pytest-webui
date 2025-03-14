@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 WORKDIR /test
-ADD ./romulus ./
+ADD romulus /test
 COPY test_in_docker.sh ./
 COPY test_obmc1.py ./
 RUN chmod +rx test_in_docker.sh
