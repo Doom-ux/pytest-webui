@@ -1,7 +1,8 @@
 FROM ubuntu:latest
 
+RUN ls -l ../
 RUN mkdir -p /test/romulus
-COPY /home/runner/work/pytest-webui/pytest-webui/romulus/ /test/romulus/
+COPY ../romulus/ /test/romulus/
 
 WORKDIR /test
 COPY test_in_docker.sh ./
