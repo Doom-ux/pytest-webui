@@ -3,7 +3,7 @@ FROM ubuntu:latest
 WORKDIR /test
 
 RUN apt-get update && apt-get install -qq -y --no-install-recommends wget && rm -rf /var/lib/apt/lists/*
-RUN apt-get -y install unzip
+RUN apt-get install unzip
 RUN wget https://jenkins.openbmc.org/job/ci-openbmc/lastSuccessfulBuild/distro=ubuntu,label=docker-builder,target=romulus/artifact/openbmc/build/tmp/deploy/images/romulus/*zip*/romulus.zip
 RUN unzip romulus.zip && rm romulus.zip
 RUN apt-get purge -y --auto-remove wget
