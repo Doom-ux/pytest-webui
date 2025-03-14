@@ -1,8 +1,9 @@
 FROM ubuntu:latest
 
+RUN mkdir -p /test/romulus
+COPY /home/runner/work/pytest-webui/pytest-webui/romulus/ /test/romulus/
+
 WORKDIR /test
-RUN mkdir -p romulus
-COPY ../romulus/ ./romulus
 COPY test_in_docker.sh ./
 COPY test_obmc1.py ./
 RUN chmod +rx test_in_docker.sh
