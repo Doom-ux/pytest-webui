@@ -5,6 +5,8 @@ COPY test_in_docker.sh ./
 COPY test_obmc1.py ./
 RUN chmod +rx test_in_docker.sh
 RUN chmod +rx test_obmc1.py
+RUN sudo apt-get update
+RUN sudo apt-get -y install qemu-system-arm
 
 # Set ENTRYPOINT to the script
 ENTRYPOINT [ "./test_in_docker.sh" ]
