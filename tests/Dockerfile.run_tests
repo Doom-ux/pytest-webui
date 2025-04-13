@@ -21,9 +21,7 @@ RUN rm google-chrome-stable_current_amd64.deb
 
 RUN apt-get -y install python3-venv python3-pip
 RUN python3 -m venv obmc_venv
-RUN . ./obmc_venv/bin/activate
-RUN pip install --upgrade pip
-RUN pip install requests pytest selenium
+RUN . ./obmc_venv/bin/activate && python3 -m pip install --upgrade pip && pip install requests pytest selenium
 
 # Set ENTRYPOINT to the script
 ENTRYPOINT [ "./test_in_docker.sh" ]
