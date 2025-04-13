@@ -12,6 +12,9 @@ RUN apt-get update && apt-get -y install qemu-system-arm
 
 RUN apt-get -y install wget
 RUN apt-get -y install dpkg
+RUN apt-get update && apt-get upgrade
+RUN apt-get -y install fonts-liberation
+RUN apt-get -y install xdg-utils
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb
 RUN rm google-chrome-stable_current_amd64.deb
