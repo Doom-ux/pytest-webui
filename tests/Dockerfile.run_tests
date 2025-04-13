@@ -10,5 +10,15 @@ RUN chmod +rx test_obmc1.py
 RUN chmod +rx romulus
 RUN apt-get update && apt-get -y install qemu-system-arm
 
+RUN apt-get -y install python3-venv python3-pip
+RUN python -m pip install --upgrade pip
+RUN pip install requests pytest selenium
+
+RUN apt-get -y install wget
+RUN apt-get -y install dpkg
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb
+RUN rm google-chrome-stable_current_amd64.deb
+
 # Set ENTRYPOINT to the script
 ENTRYPOINT [ "./test_in_docker.sh" ]
